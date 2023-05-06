@@ -231,25 +231,6 @@ class CopernicusExportPlugin extends ImportExportPlugin
 
                         $index++;
                     }
-
-                    if (method_exists($_article, "getLocalizedCitations"))
-                        $citation_text = $_article->getLocalizedCitations();
-                    else
-                        $citation_text = $_article->getCitations();
-
-                    if ($citation_text) {
-                        $citation_arr = explode("\n", $citation_text);
-                        $references_elem = self::createChildWithText($doc, $article_elem, 'references', '', true);
-                        $index = 1;
-                        foreach ($citation_arr as $citation) {
-                            if ($citation == "") continue;
-                            $reference_elem = self::createChildWithText($doc, $references_elem, 'reference', '', true);
-                            self::createChildWithText($doc, $reference_elem, 'unparsedContent', $citation, true);
-                            self::createChildWithText($doc, $reference_elem, 'order', $index, true);
-                            self::createChildWithText($doc, $reference_elem, 'doi', '', true);
-                            $index++;
-                        }
-                    }
                     $num_articles++;
 
                 }

@@ -776,13 +776,13 @@
 															<xs:documentation xml:lang="pl">URL to a file with an electronic version of the publication. Permitted formats are PDF. The file will WILL BE shared publicly.</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="publicationDate" type="xs:dateTime" minOccurs="0">
+													<xs:element name="publicationDate" type="xs:date" minOccurs="0">
 														<xs:annotation>
 															<xs:documentation xml:lang="en">Publication date.</xs:documentation>
 															<xs:documentation>Data publikacji.</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="registrationDate" type="xs:dateTime" minOccurs="0"/>
+													<xs:element name="registrationDate" type="xs:date" minOccurs="0"/>
 													<xs:element name="pageFrom" type="xs:integer" minOccurs="0">
 														<xs:annotation>
 															<xs:documentation xml:lang="en">First page of the publication.</xs:documentation>
@@ -1037,7 +1037,7 @@
 								<xs:documentation xml:lang="pl">Rok wydania</xs:documentation>
 							</xs:annotation>
 						</xs:attribute>
-						<xs:attribute name="publicationDate" type="xs:dateTime" use="optional">
+						<xs:attribute name="publicationDate" type="xs:date" use="optional">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Publication date</xs:documentation>
 								<xs:documentation xml:lang="pl">Data publikacji</xs:documentation>
