@@ -226,6 +226,7 @@ class CopernicusExportPlugin extends ImportExportPlugin
                         self::createChildWithText($doc, $author_elem, 'email', $author->getEmail(), false);
                         self::createChildWithText($doc, $author_elem, 'order', $index, true);
                         self::createChildWithText($doc, $author_elem, 'instituteAffiliation', substr($author->getLocalizedAffiliation(), 0, 1000), false);
+                         self::createChildWithText($doc, $author_elem, 'country', $author->getCountry(), false);
                         self::createChildWithText($doc, $author_elem, 'role', 'AUTHOR', true);
                         self::createChildWithText($doc, $author_elem, 'ORCID', $author->getData('orcid'), false);
 
