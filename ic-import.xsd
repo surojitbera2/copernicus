@@ -927,6 +927,15 @@
 																		</xs:restriction>
 																	</xs:simpleType>
 																</xs:element>
+																
+																	<xs:element name="country" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation xml:lang="en">Country of the contributor/author.</xs:documentation>
+																		<xs:documentation xml:lang="pl">Country autora.</xs:documentation>
+																		</xs:annotation>
+																			</xs:element>
+																
+																
 																<xs:element name="role" type="roleType" minOccurs="0">
 																	<xs:annotation>
 																		<xs:documentation xml:lang="en">Role of the contributor/author. Please use only values from the list.</xs:documentation>
