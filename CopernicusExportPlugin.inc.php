@@ -112,10 +112,7 @@ class CopernicusExportPlugin extends ImportExportPlugin
         $issue_elem->setAttribute('volume', $issue->getVolume());
         $issue_elem->setAttribute('year', $issue->getYear());
         $issue_elem->setAttribute('publicationDate', $pub_issue_date);
-
         $sectionDao =& DAORegistry::getDAO('SectionDAO');
-
-
         $articleFileDao =& DAORegistry::getDAO('ArticleGalleyDAO');
         $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
         $num_articles = 0;
@@ -163,14 +160,11 @@ class CopernicusExportPlugin extends ImportExportPlugin
                         self::createChildWithText($doc, $lang_version, 'title', $article->getLocalizedTitle($loc), true);
                         self::createChildWithText($doc, $lang_version, 'abstract', strip_tags($article->getLocalizedData('abstract', $loc)), true);
 
-
-                        if (is_a($article, 'PublishedArticle')) {
-                            foreach ($article->getGalleys() as $galley) {
-                                $url = Request::url($journal->getPath()) . '/article/download/' . $article->getBestArticleId() . '/' . $galley->getBestGalleyId();
-                                break;
-                            }
-                            self::createChildWithText($doc, $lang_version, 'pdfFileUrl', $url, true);
+                      {
+                          foreach ($_article->getGalleys() as $galley) 
+                        self::createChildWithText($doc, $lang_version, 'pdfFileUrl', $url ='http://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] .'/'. $journal->getPath() . '/article/download/' . $_article->getBestArticleId() . '/' . $galley->getBestGalleyId(), true);
                         }
+                     
 
                         $publicationDate = $_article->getDatePublished();
 
@@ -226,7 +220,7 @@ class CopernicusExportPlugin extends ImportExportPlugin
                         self::createChildWithText($doc, $author_elem, 'email', $author->getEmail(), false);
                         self::createChildWithText($doc, $author_elem, 'order', $index, true);
                         self::createChildWithText($doc, $author_elem, 'instituteAffiliation', substr($author->getLocalizedAffiliation(), 0, 1000), false);
-                         self::createChildWithText($doc, $author_elem, 'country', $author->getCountry(), false);
+                        self::createChildWithText($doc, $author_elem, 'country', $author->getCountry(), true);
                         self::createChildWithText($doc, $author_elem, 'role', 'AUTHOR', true);
                         self::createChildWithText($doc, $author_elem, 'ORCID', $author->getData('orcid'), false);
 
