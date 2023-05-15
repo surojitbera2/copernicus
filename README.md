@@ -15,7 +15,3 @@ This plug-in supports only PHP version 7.4.
 # Troubleshooting
 
 1. If some gone wrong, please find folder "copernicus" in OJS_ROOT/plugins/importexport/ and delete it
-
-
-# Credits
-Developed by Surojit Bera
